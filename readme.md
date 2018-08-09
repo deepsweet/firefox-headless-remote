@@ -5,3 +5,20 @@ Dockerized Firefox in headless [Marionette](https://vakila.github.io/blog/marion
 ```sh
 docker run -it --rm --shm-size 2g -p 2828:2828 deepsweet/firefox-headless-remote:61
 ```
+
+```js
+import foxr from 'foxr'
+
+(async () => {
+  try {
+    const browser = await foxr.connect()
+    const page = await browser.newPage()
+
+    await page.goto('https://example.com')
+    await page.screenshot({ path: 'example.png' })
+    await browser.close()
+  } catch (error) {
+    console.error(error)
+  }
+})()
+```
