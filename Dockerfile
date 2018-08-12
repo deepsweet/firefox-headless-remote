@@ -6,7 +6,8 @@ RUN apt-get update && \
     useradd --create-home --gid firefox firefox && \
     chown --recursive firefox:firefox /home/firefox/
 
-COPY entrypoint.sh /home/firefox
+COPY --chown=firefox:firefox entrypoint.sh /home/firefox/
+COPY --chown=firefox:firefox profile/ /home/firefox/profile/
 
 USER firefox
 
