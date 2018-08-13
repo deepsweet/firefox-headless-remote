@@ -2,10 +2,14 @@
 
 Dockerized Firefox in headless [Marionette](https://vakila.github.io/blog/marionette-act-i-automation/) mode.
 
+## Usage
+
 ```sh
 docker pull deepsweet/firefox-headless-remote:61
 docker run -it --rm --shm-size 2g -p 2828:2828 deepsweet/firefox-headless-remote:61
 ```
+
+Example using [Foxr](https://github.com/deepsweet/foxr):
 
 ```js
 import foxr from 'foxr'
@@ -23,3 +27,7 @@ import foxr from 'foxr'
   }
 })()
 ```
+
+## Related
+
+* [chromium-headless-remote](https://github.com/deepsweet/chromium-headless-remote)
