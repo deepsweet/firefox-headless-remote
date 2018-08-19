@@ -31,3 +31,4 @@ import foxr from 'foxr'
 ## Related
 
 * [chromium-headless-remote](https://github.com/deepsweet/chromium-headless-remote)
+* [ungoogled-chromium-headless-remote](https://github.com/deepsweet/ungoogled-chromium-headless-remote)
