@@ -28,6 +28,10 @@ import foxr from 'foxr'
 })()
 ```
 
+## Fonts
+
+It's possible to mount a folder with custom fonts to be used later by Firefox: add `-v $(pwd)/path/to/fonts:/home/firefox/.fonts` to `docker run` arguments.
+
 ## Related
 
 * [chromium-headless-remote](https://github.com/deepsweet/chromium-headless-remote)
