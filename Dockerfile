@@ -1,4 +1,4 @@
-FROM ubuntu:bionic
+FROM ubuntu:cosmic
 
 RUN apt-get update && \
     apt-get --no-install-recommends --yes install firefox=62.\* dumb-init socat fontconfig && \
