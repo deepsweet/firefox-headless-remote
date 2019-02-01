@@ -1,7 +1,7 @@
 FROM ubuntu:cosmic
 
 RUN apt-get update && \
-    apt-get --no-install-recommends --yes install firefox=64.\* dumb-init socat fontconfig && \
+    apt-get --no-install-recommends --yes install firefox=65.\* dumb-init socat fontconfig && \
     groupadd firefox && \
     useradd --create-home --gid firefox firefox && \
     chown --recursive firefox:firefox /home/firefox/
