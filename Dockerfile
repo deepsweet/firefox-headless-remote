@@ -1,4 +1,4 @@
-FROM ubuntu:cosmic
+FROM ubuntu:disco
 
 RUN apt-get update && \
     apt-get --no-install-recommends --yes install firefox=65.\* dumb-init socat fontconfig && \
