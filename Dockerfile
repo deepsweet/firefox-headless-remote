@@ -14,5 +14,5 @@ COPY --chown=firefox:firefox profile/ /home/firefox/profile/
 USER firefox
 
 EXPOSE 2828
-
+ENV FIREFOX_BIND_PORT 2828
 ENTRYPOINT ["dumb-init", "--", "/bin/sh", "/home/firefox/entrypoint.sh"]
