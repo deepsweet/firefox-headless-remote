@@ -1,7 +1,7 @@
 FROM ubuntu:disco
 
 RUN apt-get update && \
-    apt-get --no-install-recommends --yes install firefox=67\* dumb-init socat fontconfig && \
+    apt-get --no-install-recommends --yes install firefox=68\* dumb-init socat fontconfig && \
     groupadd firefox && \
     useradd --create-home --gid firefox firefox && \
     chown --recursive firefox:firefox /home/firefox/
