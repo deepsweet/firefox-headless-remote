@@ -74,3 +74,6 @@ user_pref("experiments.manifest.uri", "");
 user_pref("experiments.supported", false);
 user_pref("experiments.activeExperiment", false);
 user_pref("network.allow-experiments", false);
+
+// Marionette settings
+user_pref("marionette.log.level", "debug");
