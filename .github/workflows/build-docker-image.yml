@@ -1,0 +1,18 @@
+name: Docker Image CI
+
+on:
+  schedule:
+    - cron: 0 0 * * 3
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Build Docker image
+        run: docker build . --file Dockerfile --tag neuralegion/firefox-headless-remote
+      - name: Login into Docker
+        run: docker login --username=anatol1988 --password=${{ secrets.DOCKER_TOKEN }}
+      - name: Push Docker image
+        run: docker push neuralegion/firefox-headless-remote
