@@ -1,7 +1,10 @@
 FROM ubuntu:eoan
 
-RUN apt-get update && \
-    apt-get --no-install-recommends --yes install firefox=69\* dumb-init socat fontconfig && \
+RUN apt-get update
+RUN apt-get install software-properties-common --no-install-recommends --yes
+RUN add-apt-repository ppa:ubuntu-mozilla-daily
+RUN apt-get update
+RUN apt-get --no-install-recommends --yes install firefox-trunk dumb-init socat fontconfig && \
     groupadd firefox && \
     useradd --create-home --gid firefox firefox && \
     chown --recursive firefox:firefox /home/firefox/
