@@ -13,7 +13,7 @@ VOLUME ["/home/firefox/.fonts"]
 
 COPY --chown=firefox:firefox entrypoint.sh /home/firefox/
 COPY --chown=firefox:firefox profile/ /home/firefox/profile/
-
+RUN ln -s /usr/bin/firefox-trunk /usr/bin/firefox
 USER firefox
 
 ENTRYPOINT ["dumb-init", "--", "/bin/sh", "/home/firefox/entrypoint.sh"]
