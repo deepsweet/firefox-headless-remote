@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if [ "$(ls -A /home/firefox/.fonts/)" ]; then
   fc-cache -f -v

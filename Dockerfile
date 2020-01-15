@@ -1,10 +1,7 @@
 FROM archlinux:latest
 
 
-RUN groupadd firefox && \
-  useradd --create-home --gid firefox firefox && \
-  chown --recursive firefox:firefox /home/firefox/
-
+RUN useradd -m -s /bin/bash firefox
 
 RUN pacman -Sy reflector --noconfirm
 RUN reflector --score 10 --save /etc/pacman.d/mirrorlist
@@ -30,4 +27,4 @@ COPY --chown=firefox:firefox profile/ /home/firefox/profile/
 
 USER firefox
 
-ENTRYPOINT ["dumb-init", "--", "/bin/sh", "/home/firefox/entrypoint.sh"]
+ENTRYPOINT ["dumb-init", "--", "/bin/bash", "/home/firefox/entrypoint.sh"]
