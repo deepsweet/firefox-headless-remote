@@ -1,24 +1,16 @@
-FROM archlinux:latest
+FROM ubuntu:eoan
 
+RUN apt-get update && \
+    apt-get --no-install-recommends --yes install firefox=69\* dumb-init socat wget fontconfig && \
+    groupadd firefox && \
+    useradd --create-home --gid firefox firefox && \
+    chown --recursive firefox:firefox /home/firefox/
 
-RUN useradd -m -s /bin/bash firefox
-
-RUN pacman -Sy reflector --noconfirm
-RUN reflector --score 10 --save /etc/pacman.d/mirrorlist
-RUN yes | pacman -Syyu
-
-RUN set -euxo pipefail && \
-  VERSION=`curl -s https://github.com/Yelp/dumb-init/releases/latest | sed 's/.*tag\/v\([0-9.]*\).*/\1/'` && \
-	curl -sSL https://github.com/Yelp/dumb-init/releases/download/v${VERSION}/dumb-init_${VERSION}_amd64 > /usr/local/bin/dumb-init && \
-	chmod +x /usr/local/bin/dumb-init
-
-RUN pacman -S \
-    socat \
-    firefox \
-    --noconfirm
-
-RUN yes | pacman -Scc
-
+RUN wget https://ftp.mozilla.org/pub/firefox/releases/68.0/linux-x86_64/en-US/firefox-68.0.tar.bz2 --no-check-certificate
+RUN tar -xjf firefox-68.0.tar.bz2
+RUN mv firefox /opt/firefox68
+RUN rm /usr/bin/firefox
+RUN ln -s /opt/firefox68/firefox-bin /usr/bin/firefox
 
 VOLUME ["/home/firefox/.fonts"]
 
@@ -27,4 +19,4 @@ COPY --chown=firefox:firefox profile/ /home/firefox/profile/
 
 USER firefox
 
-ENTRYPOINT ["dumb-init", "--", "/bin/bash", "/home/firefox/entrypoint.sh"]
+ENTRYPOINT ["dumb-init", "--", "/bin/sh", "/home/firefox/entrypoint.sh"]
