@@ -1,16 +1,15 @@
-FROM ubuntu:eoan
+FROM alpine:latest
 
-RUN apt-get update && \
-    apt-get --no-install-recommends --yes install firefox=69\* dumb-init socat wget fontconfig && \
-    groupadd firefox && \
-    useradd --create-home --gid firefox firefox && \
-    chown --recursive firefox:firefox /home/firefox/
+RUN \
+  adduser -h /home/firefox -s /sbin/nologin -u 1000 -D firefox && \
+  apk add --no-cache \
+    dbus-x11 \
+    dumb-init \
+    firefox-esr \
+    mesa-gl \
+    mesa-dri-swrast \
+    ttf-freefont
 
-RUN wget https://ftp.mozilla.org/pub/firefox/releases/68.0/linux-x86_64/en-US/firefox-68.0.tar.bz2 --no-check-certificate
-RUN tar -xjf firefox-68.0.tar.bz2
-RUN mv firefox /opt/firefox68
-RUN rm /usr/bin/firefox
-RUN ln -s /opt/firefox68/firefox-bin /usr/bin/firefox
 
 VOLUME ["/home/firefox/.fonts"]
 
