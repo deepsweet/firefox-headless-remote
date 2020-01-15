@@ -2,10 +2,10 @@ FROM alpine:latest
 
 RUN \
   adduser -h /home/firefox -s /sbin/nologin -u 1000 -D firefox && \
+  apk --no-cache add --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing firefox && \
   apk add --no-cache \
     dbus-x11 \
     dumb-init \
-    firefox-esr \
     mesa-gl \
     mesa-dri-swrast \
     ttf-freefont \
