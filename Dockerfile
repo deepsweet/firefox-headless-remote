@@ -8,7 +8,8 @@ RUN \
     firefox-esr \
     mesa-gl \
     mesa-dri-swrast \
-    ttf-freefont
+    ttf-freefont \
+    socat
 
 
 VOLUME ["/home/firefox/.fonts"]
