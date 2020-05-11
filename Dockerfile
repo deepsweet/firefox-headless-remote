@@ -6,8 +6,8 @@ RUN apt-get update && \
     useradd --create-home --gid firefox firefox && \
     chown --recursive firefox:firefox /home/firefox/
 
-RUN wget https://ftp.mozilla.org/pub/firefox/releases/76.0/linux-x86_64/en-US/firefox-76.0.tar.bz2 --no-check-certificate
-RUN tar -xjf firefox-76.0.tar.bz2
+RUN wget https://ftp.mozilla.org/pub/firefox/releases/76.0.1/linux-x86_64/en-US/firefox-76.0.1.tar.bz2 --no-check-certificate
+RUN tar -xjf firefox-76.0.1.tar.bz2
 RUN mv firefox /opt/firefox76
 RUN rm /usr/bin/firefox
 RUN ln -s /opt/firefox76/firefox-bin /usr/bin/firefox
