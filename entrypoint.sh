@@ -12,4 +12,4 @@ ip=$(hostname --ip-address)
 
 socat tcp-listen:$MARIONETTE_PORT,bind="$ip",fork tcp:127.0.0.1:$MARIONETTE_PORT &
 
-/usr/bin/firefox -headless -marionette -safe-mode -profile /home/firefox/profile/
+god -c /home/firefox/firefox.god -D
