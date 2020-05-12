@@ -77,3 +77,7 @@ user_pref("network.allow-experiments", false);
 
 // Marionette settings
 user_pref("marionette.log.level", "debug");
+
+// Enable authless screencapture
+user_pref("media.getusermedia.browser.enabled", true);
+user_pref("media.navigator.permission.disabled", true);
