@@ -84,3 +84,4 @@ user_pref("media.navigator.permission.disabled", true);
 
 // Disable auto download
 user_pref("browser.helperApps.neverAsk.saveToDisk", "application/octet-stream, application/pdf, application/msword, application/csv, application/ris, text/csv, image/png, application/pdf, text/html, text/plain, application/zip, application/x-zip, application/x-zip-compressed, application/download, application/octet-stream")
+
