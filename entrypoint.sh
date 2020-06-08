@@ -6,7 +6,7 @@ if [ "$(ls -A /home/firefox/.fonts/)" ]; then
 fi
 
 echo "user_pref(\"marionette.port\", $MARIONETTE_PORT);"
-echo "\nuser_pref(\"marionette.port\", $MARIONETTE_PORT);" >> /home/firefox/profile/prefs.js
+echo "user_pref(\"marionette.port\", $MARIONETTE_PORT);" >> /home/firefox/profile/prefs.js
 
 ip=$(hostname --ip-address)
 
