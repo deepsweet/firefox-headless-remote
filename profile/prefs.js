@@ -82,4 +82,6 @@ user_pref("marionette.log.level", "debug");
 user_pref("media.getusermedia.browser.enabled", true);
 user_pref("media.navigator.permission.disabled", true);
 
-
+// Don't fetch Favico
+user_pref("browser.chrome.favicons", false);
+user_pref("browser.chrome.site_icons", false);
