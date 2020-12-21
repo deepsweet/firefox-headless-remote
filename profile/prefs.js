@@ -85,3 +85,6 @@ user_pref("media.navigator.permission.disabled", true);
 // Don't fetch Favico
 user_pref("browser.chrome.favicons", false);
 user_pref("browser.chrome.site_icons", false);
+
+// Allow proxying of 127.0.0.1/localhost
+user_pref("network.proxy.allow_hijacking_localhost", true);
