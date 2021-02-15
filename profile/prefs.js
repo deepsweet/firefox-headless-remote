@@ -90,15 +90,16 @@ user_pref("browser.chrome.site_icons", false);
 user_pref("network.proxy.allow_hijacking_localhost", true);
 
 // Don't ask to save stuff to disk
-user_pref("browser.helperApps.neverAsk.saveToDisk", "application/octet-stream,text/plain")
+user_pref("browser.helperApps.neverAsk.saveToDisk", "application/octet-stream,text/plain");
 
 // Don't send silly data to Mozzila
-user_pref("extensions.blocklist.enabled", false)
-user_pref("browser.safebrowsing.downloads.remote.enabled", false)
-user_pref("messaging-system.rsexperimentloader.enabled", false)
-user_pref("browser.aboutHomeSnippets.updateUrl", "")
-user_pref("browser.startup.homepage_override.mstone", "ignore")
-user_pref("extensions.getAddons.cache.enabled", false)
-user_pref("app.normandy.enabled", false)
-user_pref("network.captive-portal-service.enabled", false)
-user_pref("network.connectivity-service.enabled", false)
+user_pref("extensions.blocklist.enabled", false);
+user_pref("browser.safebrowsing.downloads.remote.enabled", false);
+user_pref("messaging-system.rsexperimentloader.enabled", false);
+user_pref("browser.aboutHomeSnippets.updateUrl", "");
+user_pref("browser.startup.homepage_override.mstone", "ignore");
+user_pref("extensions.getAddons.cache.enabled", false);
+user_pref("app.normandy.enabled", false);
+user_pref("network.captive-portal-service.enabled", false);
+user_pref("network.connectivity-service.enabled", false);
+
