@@ -102,4 +102,5 @@ user_pref("extensions.getAddons.cache.enabled", false);
 user_pref("app.normandy.enabled", false);
 user_pref("network.captive-portal-service.enabled", false);
 user_pref("network.connectivity-service.enabled", false);
+user_pref("identity.fxaccounts.enabled", false);
 
