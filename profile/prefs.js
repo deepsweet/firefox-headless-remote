@@ -112,3 +112,9 @@ user_pref("security.insecure_field_warning.contextual.enabled", false);
 user_pref("security.certerrors.permanentOverride", false);
 user_pref("network.stricttransportsecurity.preloadlist", false);
 user_pref("security.enterprise_roots.enabled", true);
+
+// Disable Cache
+user_pref("browser.cache.disk.enable", false);
+user_pref("browser.cache.memory.enable", false);
+user_pref("browser.cache.offline.enable", false);
+user_pref("network.http.use-cache", false);
