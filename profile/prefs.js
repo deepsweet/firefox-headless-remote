@@ -107,3 +107,8 @@ user_pref("network.captive-portal-service.enabled", false);
 user_pref("network.connectivity-service.enabled", false);
 user_pref("identity.fxaccounts.enabled", false);
 
+// Handle SSL errors and such without popping screens
+user_pref("security.insecure_field_warning.contextual.enabled", false);
+user_pref("security.certerrors.permanentOverride", false);
+user_pref("network.stricttransportsecurity.preloadlist", false);
+user_pref("security.enterprise_roots.enabled", true);
