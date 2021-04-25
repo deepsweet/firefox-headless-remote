@@ -1,13 +1,20 @@
 FROM ubuntu:focal
 
 RUN apt-get update && \
-    DEBIAN_FRONTEND=noninteractive apt-get --no-install-recommends --yes install firefox=87\* dumb-init build-essential ruby ruby-dev gem socat wget fontconfig && \
+    DEBIAN_FRONTEND=noninteractive apt-get --no-install-recommends --yes install firefox=87\* dumb-init curl build-essential ruby ruby-dev gem socat wget fontconfig && \
     groupadd firefox && \
     useradd --create-home --gid firefox firefox && \
     chown --recursive firefox:firefox /home/firefox/
 
 # install God
 RUN gem install god
+
+# Install developer firefox
+RUN curl --location "https://download.mozilla.org/?product=firefox-devedition-latest-ssl&os=linux64&lang=en-US" \
+  | tar --extract --verbose --preserve-permissions --bzip2
+
+RUN mv firefox /home/firefox/developer-firefox
+RUN ln -s /home/firefox/developer-firefox/firefox /usr/bin/firefox-dev
 
 VOLUME ["/home/firefox/.fonts"]
 
