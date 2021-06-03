@@ -10,7 +10,7 @@ RUN apt-get update && \
 RUN gem install god
 
 # Install developer firefox
-# for now install 89.0b9 version becuase for some reason 90.0 doesn't work - webdriver just can't connect to it.
+# install 89.0b9 version for now because for some reason 90.0 doesn't work - webdriver just can't connect it.
 RUN curl --location "https://ftp.mozilla.org/pub/firefox/releases/89.0b9/linux-x86_64/en-US/firefox-89.0b9.tar.bz2" \
   | tar --extract --verbose --preserve-permissions --bzip2
 
