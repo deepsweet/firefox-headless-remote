@@ -10,7 +10,7 @@ RUN apt-get update && \
 RUN gem install god
 
 # Install firefox
-RUN curl --location "https://ftp.mozilla.org/pub/firefox/releases/92.0b9/linux-x86_64/en-US/firefox-92.0b9.tar.bz2" \
+RUN curl --location "https://ftp.mozilla.org/pub/firefox/releases/92.0.1/linux-x86_64/en-US/firefox-92.0.1.tar.bz2" \
   | tar --extract --verbose --preserve-permissions --bzip2
 
 RUN mv firefox /home/firefox/developer-firefox
