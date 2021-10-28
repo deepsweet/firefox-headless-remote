@@ -16,6 +16,7 @@ user_pref("browser.tabs.warnOnCloseOtherTabs", false);
 user_pref("browser.tabs.warnOnOpen", false);
 user_pref("browser.link.open_newwindow", 1);
 user_pref("browser.link.open_newwindow.restriction", 0);
+user_pref("browser.link.open_newwindow.override.external", 3);
 
 // updates
 user_pref("media.eme.enabled", false);
