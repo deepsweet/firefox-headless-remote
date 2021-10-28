@@ -14,9 +14,26 @@ user_pref("browser.onboarding.enabled", false);
 user_pref("browser.tabs.warnOnClose", false);
 user_pref("browser.tabs.warnOnCloseOtherTabs", false);
 user_pref("browser.tabs.warnOnOpen", false);
+
+/* Prop: browser.link.open_newwindow
+1 = force new window into same tab
+2 = allow link to open a new window
+3 = divert new window to a new tab (default)
+*/
 user_pref("browser.link.open_newwindow", 1);
+/* Prop: browser.link.open_newwindow.restriction
+0 = apply the setting under (browser.link.open_newwindow) to ALL new windows (even script windows)
+1 = override the setting under (browser.link.open_newwindow) and always use new windows
+2 = apply the setting under (browser.link.open_newwindow) to normal windows, but NOT to script windows with features (default)
+*/
 user_pref("browser.link.open_newwindow.restriction", 0);
-user_pref("browser.link.open_newwindow.override.external", 3);
+/* Prop: browser.link.open_newwindow.override.external
+-1 = apply the setting under (browser.link.open_newwindow) to external links (default)
+1 = open external links in the last active tab replacing the current page
+2 = open external links in a new window
+3 = open external links in a new tab in the last active window
+*/
+user_pref("browser.link.open_newwindow.override.external", 1);
 
 // updates
 user_pref("media.eme.enabled", false);
