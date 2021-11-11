@@ -1,7 +1,7 @@
 FROM ubuntu:focal
 
 RUN apt-get update && \
-    DEBIAN_FRONTEND=noninteractive apt-get --no-install-recommends --yes install firefox=93\* dumb-init curl build-essential ruby ruby-dev gem socat wget fontconfig && \
+    DEBIAN_FRONTEND=noninteractive apt-get --no-install-recommends --yes install firefox=94\* dumb-init curl build-essential ruby ruby-dev gem socat wget fontconfig && \
     groupadd firefox && \
     useradd --create-home --gid firefox firefox && \
     chown --recursive firefox:firefox /home/firefox/
@@ -10,7 +10,7 @@ RUN apt-get update && \
 RUN gem install god
 
 # Install firefox
-RUN curl --location "https://ftp.mozilla.org/pub/firefox/releases/93.0/linux-x86_64/en-US/firefox-93.0.tar.bz2" \
+RUN curl --location "https://ftp.mozilla.org/pub/firefox/releases/94.0.1/linux-x86_64/en-US/firefox-94.0.1.tar.bz2" \
   | tar --extract --verbose --preserve-permissions --bzip2
 
 RUN mv firefox /home/firefox/developer-firefox
