@@ -14,6 +14,8 @@ user_pref("browser.onboarding.enabled", false);
 user_pref("browser.tabs.warnOnClose", false);
 user_pref("browser.tabs.warnOnCloseOtherTabs", false);
 user_pref("browser.tabs.warnOnOpen", false);
+// optimize memory
+user_pref("browser.tabs.remote.autostart", false);
 
 /* Prop: browser.link.open_newwindow
 1 = force new window into same tab
