@@ -7,7 +7,7 @@ end
 Eye.application :firefox do
   working_dir ROOT
   trigger :flapping, times: 10, within: 1.minute
-  # currently we do not want monitor the cpu it is only for logs
+  # currently we do not want limit the cpu it is only for logs
   check :cpu, every: 30, below: 10000, times: 6
 
   process :marionette do
@@ -24,14 +24,21 @@ Eye.application :firefox do
     # (maybe enought to firefox soft restart)
     restart_grace 5.seconds
 
-    check :memory, every: 30, below: 350.megabytes, times: [3, 5]
+    # main process
+    check :memory, every: 30, below: 300.megabytes, times: [4, 4]
     # with option below will calculate all children memory and kill marionette process
-    # check :children_memory, every: 15, below: 450.megabytes, times: [3, 5]
+    check :children_memory, every: 30, below: 450.megabytes, times: [6, 6]
 
     monitor_children do
+      # with option below will calculate each child memory and send kill command
+      check :memory, every: 15, below: 500.megabytes, times: [5, 5]
+      # currently we do not want limit the cpu it is only for logs
+      check :cpu, every: 15, below: 10000, times: 5
+
+      # Stop with kill child
       stop_command 'kill -QUIT {PID}'
-      # with option below will calculate each child memory and kill child process
-      check :memory, every: 10, below: 200.megabytes, times: [3, 5]
+      # Stop with kill parent
+      # stop_command 'kill -USR2 {PARENT_PID}'
     end
   end
 end
