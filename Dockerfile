@@ -1,18 +1,23 @@
 FROM ubuntu:focal
 
 RUN apt-get update && \
-    DEBIAN_FRONTEND=noninteractive apt-get --no-install-recommends --yes install firefox=94\* dumb-init curl build-essential ruby ruby-dev gem git socat wget fontconfig && \
+    DEBIAN_FRONTEND=noninteractive apt-get --no-install-recommends --yes install firefox=94\* dumb-init curl build-essential ruby ruby-dev gem socat wget fontconfig && \
     groupadd firefox && \
     useradd --create-home --gid firefox firefox && \
     chown --recursive firefox:firefox /home/firefox/
 
 # install latest https://github.com/kostya/eye
-RUN git clone https://github.com/kostya/eye.git && \
-  cd eye && \
-  gem build eye.gemspec && \
-  gem install eye-0.10.1.pre.gem && \
-  cd .. && \
-  rm -rf eye
+# need git in apt-get
+# RUN git clone https://github.com/kostya/eye.git && \
+#   cd eye && \
+#   gem build eye.gemspec && \
+#   gem install eye-0.10.1.pre.gem && \
+#   cd .. && \
+#   rm -rf eye
+
+# install pre built gem
+COPY eye-0.10.1.pre.gem /tmp/
+RUN gem install /tmp/eye-0.10.1.pre.gem -N && rm /tmp/eye-0.10.1.pre.gem
 
 # Install firefox
 RUN curl --location "https://ftp.mozilla.org/pub/firefox/releases/94.0.1/linux-x86_64/en-US/firefox-94.0.1.tar.bz2" \

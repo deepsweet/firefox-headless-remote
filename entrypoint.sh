@@ -14,5 +14,5 @@ socat tcp-listen:$MARIONETTE_PORT,bind="$ip",fork tcp:127.0.0.1:$MARIONETTE_PORT
 # Load eye confing and run marionette
 eye l /home/firefox/firefox.eye
 # Tracing eye log to stdout
-eye t
+tail -f /var/log/syslog | grep eye
 
