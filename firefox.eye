@@ -1,7 +1,8 @@
 ROOT = File.expand_path(File.dirname(__FILE__))
 
 Eye.config do
-  logger syslog
+  # https://serverfault.com/a/932888
+  logger "/proc/1/fd/1"
 end
 
 Eye.application :firefox do
