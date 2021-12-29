@@ -1,7 +1,7 @@
 FROM ubuntu:focal
 
 RUN apt-get update && \
-    DEBIAN_FRONTEND=noninteractive apt-get --no-install-recommends --yes install firefox=94\* dumb-init curl build-essential ruby ruby-dev gem socat wget fontconfig && \
+    DEBIAN_FRONTEND=noninteractive apt-get --no-install-recommends --yes install firefox=95\* dumb-init curl build-essential ruby ruby-dev gem socat wget fontconfig && \
     groupadd firefox && \
     useradd --create-home --gid firefox firefox && \
     chown --recursive firefox:firefox /home/firefox/
@@ -20,7 +20,7 @@ COPY eye-0.10.1.pre.gem /tmp/
 RUN gem install /tmp/eye-0.10.1.pre.gem -N && rm /tmp/eye-0.10.1.pre.gem
 
 # Install firefox
-RUN curl --location "https://ftp.mozilla.org/pub/firefox/releases/94.0.1/linux-x86_64/en-US/firefox-94.0.1.tar.bz2" \
+RUN curl --location "https://ftp.mozilla.org/pub/firefox/releases/95.0.2/linux-x86_64/en-US/firefox-95.0.2.tar.bz2" \
   | tar --extract --verbose --preserve-permissions --bzip2
 
 RUN mv firefox /home/firefox/developer-firefox
