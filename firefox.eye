@@ -9,7 +9,7 @@ Eye.application :firefox do
   working_dir ROOT
   trigger :flapping, times: 10, within: 1.minute
   # currently we do not want limit the cpu it is only for logs
-  check :cpu, every: 30, below: 1000, times: 6
+  # check :cpu, every: 30, below: 1000, times: 6
 
   process :marionette do
     pid_file 'marionette.pid'
@@ -36,7 +36,7 @@ Eye.application :firefox do
       # with option below will calculate each child memory and send kill command
       check :memory, every: 10, below: 350.megabytes, times: [6, 6]
       # currently we do not want limit the cpu it is only for logs
-      check :cpu, every: 15, below: 1000, times: 5
+      # check :cpu, every: 15, below: 1000, times: 5
 
       # Stop with kill child
       stop_command 'kill -QUIT {PID}'
