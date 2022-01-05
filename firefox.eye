@@ -27,14 +27,14 @@ Eye.application :firefox do
     restart_grace 5.seconds
 
     # main process
-    check :memory, every: 30, below: 300.megabytes, times: [4, 4]
+    check :memory, every: 30, below: 600.megabytes, times: [4, 4]
     # with option below will calculate all children memory and kill marionette process
-    check :children_memory, every: 30, below: 500.megabytes, times: [4, 4]
+    check :children_memory, every: 30, below: 1000.megabytes, times: [4, 4]
 
     monitor_children do
       children_update_period 5.seconds
       # with option below will calculate each child memory and send kill command
-      check :memory, every: 10, below: 350.megabytes, times: [6, 6]
+      check :memory, every: 10, below: 700.megabytes, times: [6, 6]
       # currently we do not want limit the cpu it is only for logs
       # check :cpu, every: 15, below: 1000, times: 5
 
