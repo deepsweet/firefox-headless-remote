@@ -43,6 +43,13 @@ user_pref("media.gmp-widevinecdm.enabled", false);
 user_pref("media.gmp-gmpopenh264.enabled", false);
 user_pref("media.gmp-gmpopenh264.autoupdate", false);
 user_pref("media.gmp-manager.cert.checkAttributes", false);
+user_pref("media.gmp-gmpopenh264.visible", false);
+user_pref("media.gmp-manager.cert.checkAttributes", false);
+user_pref("media.gmp-manager.cert.requireBuiltIn", false);
+user_pref("media.gmp-manager.url", "about:blank");
+user_pref("media.gmp-provider.enabled", false);
+user_pref("media.gmp-widevinecdm.visible", false)
+user_pref("media.gmp.trial-create.enabled", false);
 user_pref("app.update.enabled", false);
 user_pref("extensions.update.enabled", false);
 user_pref("extensions.update.autoUpdateDefault", false);
@@ -147,3 +154,12 @@ user_pref("browser.cache.disk.capacity", 0);
 
 // Disable service workers
 user_pref("dom.serviceWorkers.enabled", false);
+
+// For finally disable external urls requests
+user_pref("app.update.url.details", "about:blank");
+user_pref("app.update.url.manual", "about:blank");
+user_pref("browser.safebrowsing.provider.google.updateURL", "about:blank");
+user_pref("browser.safebrowsing.provider.google4.updateURL", "about:blank");
+user_pref("browser.safebrowsing.provider.mozilla.updateURL", "about:blank");
+user_pref("extensions.update.background.url", "about:blank");
+user_pref("extensions.update.url", "about:blank");
